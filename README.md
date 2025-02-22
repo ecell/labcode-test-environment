@@ -1,4 +1,13 @@
-# Clone repositories
+# How to setup
+## 1. Clone this repository
+
+Clone this repository with following command:
+
+```bash
+git clone git@github.com:fuku-inc/labcode-test-environment.git
+```
+
+## 2. Clone service repositories
 
 Move into `labcode-test-environment` directory, run
 
@@ -12,7 +21,7 @@ Then, these repository is cloned:
 2. `labcode-log-server`
 3. `labcode-web-app`
 
-# Edit environmental variables
+## 3. Edit environmental variables
 
 Copy template file with following command:
 
@@ -20,27 +29,27 @@ Copy template file with following command:
 cp labcode-web-app/app/.env.example labcode-web-app/app/.env
 ```
 
-Then, edit `.env` and replace `your-google-client-id.apps.googleusercontent.com` with correct client ID.
+Then, edit `labcode-web-app/app/.env` and replace `your-google-client-id.apps.googleusercontent.com` with correct client ID.
 
-# Build containers
+## 4. Build containers
 
 ```bash
 docker compose build
 ```
 
-# Run containers
+## 5. Run containers
 
 ```bash
 docker compose up -d
 ```
 
-# (Only first time) setup database
+## 6. (Only first time) setup database
 
 ```bash
 docker compose exec log_server sh -c "python -m define_db.models"
 ```
 
-# Access
+## 7. Access each service
 
 lab-sim api: http://localhost:8080/docs
 
