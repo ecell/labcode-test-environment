@@ -1,16 +1,26 @@
 # Clone repositories
 
+Move into `labcode-test-environment` directory, run
+
 ```bash
 bash clone_repositories.sh
 ```
 
+Then, these repository is cloned:
+
+1. `labcode-sim`
+2. `labcode-log-server`
+3. `labcode-web-app`
+
 # Edit environmental variables
+
+Copy template file with following command:
 
 ```bash
 cp labcode-web-app/app/.env.example labcode-web-app/app/.env
 ```
 
-edit `.env`
+Then, edit `.env` and replace `your-google-client-id.apps.googleusercontent.com` with correct client ID.
 
 # Build containers
 
