@@ -28,6 +28,7 @@ docker compose up -d
 
 ```bash
 docker compose exec log_server sh -c "python -m define_db.models"
+```
 
 # Access
 
