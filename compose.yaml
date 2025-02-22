@@ -1,0 +1,35 @@
+services:
+  lab_simulator:
+    build: ./labcode-sim/lab_server
+    container_name: labcode_lab_simulator
+    volumes:
+      - ./labcode-sim/lab_server:/app
+    ports:
+      - "8080:8080"
+    networks:
+      - labcode_network
+  log_server:
+    build: ./labcode-log-server
+    container_name: labcode_log_server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./labcode-log-server/app:/app
+      - ./labcode-log-server/data:/data
+    command: |
+      uvicorn main:app --host 0.0.0.0 --reload
+    networks:
+      - labcode_network
+  webapp:
+    build: ./labcode-web-app
+    container_name: labcode_experiment_tracking_ui
+    ports:
+      - "5173:5173"
+    networks:
+      - labcode_network
+    # volumes:
+    #   - ./webapp:/app
+
+networks:
+  labcode_network:
+    driver: bridge
