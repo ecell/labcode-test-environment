@@ -4,6 +4,7 @@ services:
     container_name: labcode_lab_simulator
     volumes:
       - ./labcode-sim/lab_server:/app
+      - ./labcode-sim/storage:/storage
     ports:
       - "8080:8080"
     networks:
