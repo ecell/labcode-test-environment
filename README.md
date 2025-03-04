@@ -49,10 +49,49 @@ docker compose up -d
 docker compose exec log_server sh -c "python -m define_db.models"
 ```
 
-## 7. Access each service
+## 7. Create user
 
-lab-sim api: http://localhost:8080/docs
+1. Access to http://localhost:8000/docs#/users/create_users__post
+2. Click "Try it out"
+3. Enter email address to "email"
+4. Click "Execute"
+5. You will obtain response as follows:
+```
+{
+  "id": 1,
+  "email": "example@gmail.com"
+}
+```
+6. Memo the value of "id" as user ID
 
-log-server api: http://localhost:8000/docs
+## 8. Create Project
 
-web app: http://localhost:5173/
+1. Access to http://localhost:8000/docs#/projects/create_projects__post
+2. Click "Try it out"
+3. Enter project name to "name"
+4. Enter user ID obtained at user creation to "user_id"
+5. Click "Execute"
+6. You will obtain response as follows:
+
+```{
+  "id": 1,
+  "name": "test_project",
+  "user_id": 1,
+  "created_at": "2025-02-25T10:44:18.911007",
+  "updated_at": "2025-02-25T10:44:18.911017"
+}
+```
+6. Memo the value of "id" as project ID.
+
+## 9. Run experiment
+
+1. Access to http://0.0.0.0:8080/docs#/default/run_experiment_run_experiment_post
+2. Click "Try it out"
+3. Enter project ID obtained at project creation to "project_id"
+4. Enter protocol name to "protocol_name"
+5. Enter user ID obtained at user creation to "user_id"
+5. Click "Execute"
+
+## 10. Access to Experiment tracking UI
+
+Access to http://localhost:5173/
