@@ -90,6 +90,8 @@ docker compose exec log_server sh -c "python -m define_db.models"
 3. Enter project ID obtained at project creation to "project_id"
 4. Enter protocol name to "protocol_name"
 5. Enter user ID obtained at user creation to "user_id"
+6. Upload `labcode-test-environment/protocol.yaml` to "protocol_yaml"
+7. Upload `labcode-test-environment/manipulate.yaml` to "manipulate_yaml"
 5. Click "Execute"
 
 ## 10. Access to Experiment tracking UI
